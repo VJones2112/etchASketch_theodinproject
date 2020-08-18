@@ -44,32 +44,6 @@
 // // document.addEventListener('click', sketchPad)
 
 
-// NOT MY CODE! FROM STACKOVERFLOW MADE WEIRD TOO MANY CELLS IN COL 1
-/* Creating the grid */
-// function grid(el) {
-//     var container = document.createElement("div");
-//     container.id = "main";
-//     container.className = "container";
-
-//     for (i=0; i<16; i++) {
-//         var row = document.createElement("div");
-//         row.className = "row";
-//         row.id = "row" + i;
-      
-//         for (k=0; k<16; k++) {
-//             var box = document.createElement("div"); 
-//             box.className = "box";
-//             row.appendChild(box);
-//         };
-      
-//         container.appendChild(row);      
-//     };
-  
-//     el.appendChild(container);
-// };
-
-// grid(document.body);
-
 
 
 
@@ -96,3 +70,63 @@
 // // }
 
 // // sketchGrid(16)
+
+
+
+
+
+// Trying again on 8.17
+// Pseudo Code
+// Get User Input
+// get user input
+// store user input in variable
+// use variable to create grid
+// Create Grid Function
+// user input squared makes the grid
+// CSS makes grid flexbox or grid
+// Append the grid to Div
+
+
+// let getDiv = document.getElementById('container')
+// // let createDiv = document.createElement('div');
+// getDiv.innerHTML = '<div></div>'
+// // console.log(createDiv)
+// function createGrid(number) {
+//     for(let i = 0; i < number; i++) {
+//         let makeDivs = document.createElement('div');
+//         getDiv.appendChild(makeDivs);
+//     }
+    
+//     // addDiv = getDiv.innerHTML;
+//     // addDiv.append(getDiv);
+//     // console.log(createDiv)
+// } 
+// // console.log(createGrid)
+// createGrid(5);
+// console.log(createGrid(5))
+// document.getElementById('gridSize').addEventListener('click', createGrid);
+
+document.getElementById('gridSize').addEventListener('change', makeGrid);
+document.getElementById('resetGrid').addEventListener('click', resetGrid);
+
+function makeGrid() {
+    let tbl = document.getElementById('tableCanvas');
+    let gridSize = document.getElementById('gridSize').value;
+    for(let i = 0; i < gridSize; i++) {
+        let myRow = document.createElement('div')
+        myRow.id = 'row' + i;
+        tbl.appendChild(myRow);
+        let rowW = document.getElementById('row' + i);
+
+        for(let j = 0; j < gridSize; j++) {
+            let myCell = document.createElement('div');
+            rowW.appendChild(myCell);
+        }
+    }
+}
+
+function resetGrid() {
+    let removeDiv = document.getElementById('tableCanvas');
+    removeDiv.parentNode.removeChild(removeDiv)
+    console.log('Remove this')
+}
