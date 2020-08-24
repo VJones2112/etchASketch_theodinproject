@@ -3,12 +3,11 @@
 <html lang="en">
 
 <head>
-
-<title></title>
+<title>Etch-a-Sketch</title>
 <meta charset="UTF-8">
-<meta name="description" content="This is what Google will show.">
+<meta name="description" content="Etch-a-Sketch via The Odin Project.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href=>
+<link rel="icon" href="images/victory.png">
 <link rel="stylesheet" href="style.css">
 <script src="https://use.fontawesome.com/5db464c560.js"></script>
 </head>
@@ -16,13 +15,16 @@
 <body>
 <h1>Etch-a-Sketch</h1>
 <span>1
-<input id="gridSize" type="number" min="1" max="10">10
+<input id="gridSize" type="number" min="1" max="64">64
 </span>
+<br>
+<button id="grayScale" class="colors">Grayscale</button>
+<button id="colorScale" class="colors">Colors</button>
 <br>
 <button id="resetGrid">Reset</button>
 
 <container id="container"> 
-
+<!-- <span id="tableCanvas"></span> -->
 <table id="tableCanvas"></table>
 <!-- JS will dynamically create the grid -->
 </container>
