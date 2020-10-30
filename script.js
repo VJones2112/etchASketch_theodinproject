@@ -1,29 +1,51 @@
-const div = document.getElementsByTagName('div');
-const tableDiv = document.getElementById('tableCanvas');
+// Work on:
+// Changing userSize should not append new grid on top of old
+// Background CSS
+
+
+
+
+//***************I'm going to try without making a table. */
+let gridContainer = document.getElementById('container');
 const colorScales = document.querySelectorAll('.colors');
 let hue = 0;
+// let userSize = document.getElementById('gridSize').value;
+
 
 // The Functions
 function makeGrid() {
-    tableDiv.innerHTML = "";
-    let gridSize = document.getElementById('gridSize').value;
-    for(let i = 0; i < gridSize; i++) {
-        let myRow = document.createElement('div'); // this is actually 1st columns
-        myRow.id = 'row' + i;
-        myRow.classList.add('gridDiv');
-        //myRow.style.border = '0'; // Doesn't work
-        myRow.style.backgroundColor = 'orange'; 
-        tableDiv.appendChild(myRow);
-        let rowWidth = document.getElementById('row' + i);
-        for(let j = 0; j < gridSize; j++) {
-            let myCell = document.createElement('div');
-            rowWidth.appendChild(myCell);
-        };
+    // resetGrid(); // Not working here
+    //Get the size of the grid
+    let userSize = document.getElementById('gridSize').value;
+    
+    // Set the size of the grid
+    if (userSize <= 64 && userSize > 0) {
+        gridContainer.style.gridTemplateColumns = `repeat(${userSize}, 1fr)`;
+        gridContainer.style.gridTemplateRows = `repeat(${userSize}, 1fr)`;
+    } else {
+        alert('Please enter a number from 1 to 64.');
+        // gridContainer.style.gridTemplateColumns = '';
+        // gridContainer.style.gridTemplateRows = '';
+    }
+    
+    
+    // Create the grid
+    for (let i = 1; i <= userSize * userSize; i++) {
+        let div = document.createElement('div');
+        div.className = `grid-item grid-item${i}`;
+        gridContainer.appendChild(div);
+        div.addEventListener('mouseover', changeColor);
     };
-}
+
+    // Apply changeColor function unnecessary?
+    // changeColor();
+};
+
 
 function resetGrid() {
-    tableDiv.innerHTML = "";
+    // gridContainer.style.background = 'white';
+    gridContainer.innerHTML = "";
+    document.getElementById('gridSize').value = "";
 }
 
 function changeColor(event) {
@@ -38,13 +60,18 @@ function changeColor(event) {
         event.target.style.background = `hsl(${hue}, 100%, 50%)`;
         hue += 3;
     }
-}
+
+    console.log(event.target);
+};
 
 
 // Event Listeners
 document.getElementById('gridSize').addEventListener('change', makeGrid);
+
 document.getElementById('resetGrid').addEventListener('click', resetGrid);
-document.getElementById('tableCanvas').addEventListener('mouseover', changeColor);
+
+// gridContainer.addEventListener('mouseover', changeColor);
+// div.addEventListener('mouseover', changeColor); // nope
 colorScales.forEach(element => element.addEventListener('click', (e) => {
     colorScale = element.id;
-}))
+}));

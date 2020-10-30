@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
 
+/* :root {
+  userSize: 10;
+} */
+
 * {
     padding: 0;
     margin: 0;
@@ -12,50 +16,35 @@ body {
   font-size: 20px;
 }
 
-/* div >:first-child {
-  border: none;
-} */
-
-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-  width: 50%;
-  max-width: 500px;
-  max-height: 500px;
+input {
+  width: 5em;
+  font-size: 0.75em;
 }
 
 div {
     border: 0.5px solid black;
-    display: flex;
-    background: white;
-    height: 1em;
-    width: 1em;
-    display: flex;
-    flex: 1 0 auto
-  
+    height: 100%;
+    width: 100%;
 }
 
   #container {
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     margin: 0 auto;
+    display: inline-grid;
+    border: 1px solid red;
+    justify-content: center;
+    align-content: center;
   }
 
-  .gridDiv {
-    /* border: 2px solid red; */
-  }
-
-.gridDiv >:first-child {
-  visibility: hidden;
-  border: 0;
-}
-
-
-  #tableDiv {
-    height: 100vh;
-    width: 100vw;
-    /* margin: 0 auto; */
-    /* width: 500px;
-    height: 500px; */
+  .grid-item {
+    border: 1px solid green;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    /* grid-template-columns: auto;
+    grid-template-rows: auto; */
+    /* grid-auto-flow: dense; */
+    
   }

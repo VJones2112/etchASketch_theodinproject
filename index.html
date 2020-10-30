@@ -14,19 +14,20 @@
 
 <body>
 <h1>Etch-a-Sketch</h1>
-<span>1
-<input id="gridSize" type="number" min="1" max="64">64
+<p>Choose a grid size from 1 - 64!</p>
+<span>
+<input id="gridSize" type="text" min="1" max="64">
 </span>
-<br>
+<br> <!-- Do I want a br here or style with divs?  -->
 <button id="grayScale" class="colors">Grayscale</button>
 <button id="colorScale" class="colors">Colors</button>
-<br>
+<br> <!-- Do I want a br here or style with divs?  -->
 <button id="resetGrid">Reset</button>
+<br>
+
 
 <container id="container"> 
-<!-- <span id="tableCanvas"></span> -->
-<table id="tableCanvas"></table>
-<!-- JS will dynamically create the grid -->
+    <!-- JS will create grid here -->
 </container>
 
 
