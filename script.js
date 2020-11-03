@@ -13,8 +13,7 @@ function makeGrid() {
     // Set the size of the grid
     if (userSize <= 0 || userSize > 64) {
         alert('Please enter a number from 1 to 64.');
-        resetGrid();
-        gridContainer.innerHTML = "";
+        return; // Thank you fernandopaz1!
     };
     if (userSize > 0 && userSize <= 64) {
         gridContainer.style.gridTemplateColumns = `repeat(${userSize}, 1fr)`;
@@ -34,7 +33,7 @@ function makeGrid() {
 function resetGrid() {
     gridContainer.innerHTML = "";
     document.getElementById('gridSize').value = "";
-}
+};
 
 function changeColor(event) {
     if (colorScale === 'grayScale') {
@@ -43,11 +42,11 @@ function changeColor(event) {
             if (hue >= 99) {
                 hue = 0;
             }
-    } 
+    }; 
     if (colorScale === 'colorScale') {
         event.target.style.background = `hsl(${hue}, 100%, 50%)`;
         hue += 3;
-    }
+    };
 };
 
 
